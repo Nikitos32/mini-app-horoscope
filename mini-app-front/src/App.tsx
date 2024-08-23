@@ -15,10 +15,9 @@ export const LanguageContext = createContext({
 });
 
 function App() {
-  /* 
-  const tg = window.Telegram.WebApp; */
-  const [isTranlated, setIsTranlated] = useState<boolean>(true);
-  alert(navigator.language);
+  const [isTranlated, setIsTranlated] = useState<boolean>(
+    navigator.language.includes('ru') ? false : true
+  );
 
   const toggleIsTranslated = () => {
     setIsTranlated(!isTranlated);

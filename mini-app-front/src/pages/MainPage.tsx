@@ -1,4 +1,5 @@
 import { LanguageContext } from '@/App';
+import { MainItemSign } from '@/components/MainItemSign';
 import { FetchResponse } from '@/constants/interfaces';
 import { useContext, useEffect, useState } from 'react';
 
@@ -27,5 +28,15 @@ export const MainPage = () => {
     getHoroscopes();
   }, [isTranlated]);
 
-  return <p>Знаки зодиака: {JSON.stringify(zodiacs)}</p>;
+  return (
+    <>
+      {window.Telegram && window.Telegram.WebApp.BackButton.hide()}
+      <section className="flex gap-5 justify-center flex-wrap">
+        {zodiacs &&
+          Object.keys(zodiacs.horoscope).map((elem) => {
+            return <MainItemSign key={elem} signName={elem} />;
+          })}
+      </section>
+    </>
+  );
 };

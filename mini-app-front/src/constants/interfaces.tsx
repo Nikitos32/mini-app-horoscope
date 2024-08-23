@@ -20,3 +20,8 @@ export interface Horoscope {
 export interface ZodiacSign {
   signDescription: string;
 }
+
+export interface Sign {
+  horoscope: string;
+  sign: string;
+}
