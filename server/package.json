@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@types/node-telegram-bot-api": "^0.64.7",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
+}
