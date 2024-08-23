@@ -8,7 +8,6 @@ import { Link, useParams } from 'react-router-dom';
 export const SignPage = () => {
   const { isTranlated } = useContext(LanguageContext);
   const [zodiac, setZodiac] = useState<Sign>();
-  const backBtn = window.Telegram ? window.Telegram.WebApp.BackButton : '';
   const params = useParams();
   const getHoroscope = async () => {
     const data = await fetch('https://poker247tech.ru/get_horoscope/', {
@@ -17,7 +16,7 @@ export const SignPage = () => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        sign: `${params.sign}`,
+        sign: `${params.sign?.split('_')[0]}`,
         language: isTranlated ? 'translated' : 'original',
         period: 'today',
       }),
@@ -33,16 +32,13 @@ export const SignPage = () => {
 
   return (
     <>
-      {backBtn ? (
-        backBtn.show()
-      ) : (
-        <Link to="/mini-app-horoscope" className="pl-5">
-          <FaArrowLeft className="size-7" />
-        </Link>
-      )}
+      <Link to="/mini-app-horoscope" className="pl-5">
+        <FaArrowLeft className="size-7" />
+      </Link>
       <SignItemPage
-        description={zodiac?.horoscope + ''}
-        signName={params.sign + ''}
+        score={+params.sign!.split('_')[1]}
+        description={`${zodiac?.horoscope}`}
+        signName={`${params.sign?.split('_')[0]}`}
       />
     </>
   );

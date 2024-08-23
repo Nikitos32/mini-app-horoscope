@@ -3,19 +3,20 @@ import { Icons } from '@/constants/icons';
 import { library } from '@/constants/library';
 import { useContext } from 'react';
 import { IconType } from 'react-icons';
-import { TbZodiacAquarius } from 'react-icons/tb';
 
 interface SignItemPageProps {
   description: string;
   signName: string;
+  score: number;
 }
 
-export const SignItemPage = ({ description, signName }: SignItemPageProps) => {
-  let SignIcon: IconType = TbZodiacAquarius;
+export const SignItemPage = ({
+  description,
+  signName,
+  score,
+}: SignItemPageProps) => {
+  const SignIcon: IconType = Icons[score];
   const { isTranlated } = useContext(LanguageContext);
-  Icons.filter((elem) => {
-    if (elem.name.toLowerCase().includes(signName)) SignIcon = elem;
-  });
   return (
     <div className="flex flex-col gap-5 text-justify">
       <p className="mx-auto">

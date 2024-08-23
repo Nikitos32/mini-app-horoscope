@@ -33,8 +33,8 @@ export const MainPage = () => {
       {window.Telegram && window.Telegram.WebApp.BackButton.hide()}
       <section className="flex gap-5 justify-center flex-wrap">
         {zodiacs &&
-          Object.keys(zodiacs.horoscope).map((elem) => {
-            return <MainItemSign key={elem} signName={elem} />;
+          Object.keys(zodiacs.horoscope).map((elem, index) => {
+            return <MainItemSign key={elem} signName={elem} score={index} />;
           })}
       </section>
     </>

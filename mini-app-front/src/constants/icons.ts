@@ -12,16 +12,16 @@ import { TbZodiacTaurus } from 'react-icons/tb';
 import { TbZodiacVirgo } from 'react-icons/tb';
 
 export const Icons = [
-  TbZodiacAquarius,
   TbZodiacAries,
-  TbZodiacCancer,
-  TbZodiacCapricorn,
-  TbZodiacGemini,
-  TbZodiacLeo,
-  TbZodiacLibra,
-  TbZodiacPisces,
-  TbZodiacSagittarius,
-  TbZodiacScorpio,
   TbZodiacTaurus,
+  TbZodiacGemini,
+  TbZodiacCancer,
+  TbZodiacLeo,
   TbZodiacVirgo,
+  TbZodiacLibra,
+  TbZodiacScorpio,
+  TbZodiacSagittarius,
+  TbZodiacCapricorn,
+  TbZodiacAquarius,
+  TbZodiacPisces,
 ];

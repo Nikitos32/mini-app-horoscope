@@ -3,25 +3,19 @@ import { Icons } from '@/constants/icons';
 import { library } from '@/constants/library';
 import { useContext } from 'react';
 import { IconType } from 'react-icons';
-import { TbZodiacAquarius } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
 interface SignItemPageProps {
   signName: string;
+  score: number;
 }
 
-export const MainItemSign = ({ signName }: SignItemPageProps) => {
-  let SignIcon: IconType = TbZodiacAquarius;
+export const MainItemSign = ({ signName, score }: SignItemPageProps) => {
+  const SignIcon: IconType = Icons[score];
   const { isTranlated } = useContext(LanguageContext);
-  Icons.filter((elem) => {
-    if (elem.name.toLowerCase().includes(signName)) {
-      console.log(elem.name);
-      SignIcon = elem;
-    }
-  });
   return (
     <Link
-      to={`./${signName}`}
+      to={`./${signName}_${score}`}
       className="flex flex-col gap-5 text-justify border border-black w-80 p-2 rounded-lg hover:shadow-[1px_1px_5px] transition-all duration-500"
     >
       <p className="flex justify-center">
