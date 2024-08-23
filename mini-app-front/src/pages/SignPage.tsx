@@ -1,6 +1,7 @@
 import { LanguageContext } from '@/App';
 import { SignItemPage } from '@/components/SignItemPage';
 import { Sign } from '@/constants/interfaces';
+import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { useContext, useEffect, useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
@@ -32,6 +33,7 @@ export const SignPage = () => {
 
   return (
     <>
+      <BackButton onClick={() => console.log('back')} />
       <Link to="/mini-app-horoscope" className="pl-5">
         <FaArrowLeft className="size-7" />
       </Link>
