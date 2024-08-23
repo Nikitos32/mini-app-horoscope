@@ -11,9 +11,9 @@ import { SignPage } from './pages/SignPage';
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout />}>
+      <Route path="/mini-app-horoscope" element={<MainLayout />}>
         <Route index element={<MainPage />} />
-        <Route path="/:sign" element={<SignPage />} />
+        <Route path="/mini-app-horoscope/:sign" element={<SignPage />} />
       </Route>
     )
   );
