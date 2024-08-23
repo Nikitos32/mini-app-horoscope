@@ -1,6 +1,11 @@
-import { useEffect } from 'react';
+import { LanguageContext } from '@/App';
+import { FetchResponse } from '@/constants/interfaces';
+import { useContext, useEffect, useState } from 'react';
 
 export const MainPage = () => {
+  const [zodiacs, setZodiacs] = useState<FetchResponse>();
+  const { isTranlated } = useContext(LanguageContext);
+
   const getHoroscopes = async () => {
     const data = await fetch('https://poker247tech.ru/get_horoscope/', {
       method: 'POST',
@@ -9,18 +14,18 @@ export const MainPage = () => {
       },
       body: JSON.stringify({
         sign: '',
-        language: 'translated',
+        language: isTranlated ? 'translated' : 'original',
         period: 'today',
       }),
     });
     data.json().then((data) => {
-      console.log(data);
+      setZodiacs(data);
     });
   };
 
   useEffect(() => {
     getHoroscopes();
-  }, []);
+  }, [isTranlated]);
 
-  return <p>Main page</p>;
+  return <p>Знаки зодиака: {JSON.stringify(zodiacs)}</p>;
 };

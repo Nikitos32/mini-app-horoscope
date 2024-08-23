@@ -7,8 +7,20 @@ import {
 import { MainLayout } from './layouts/MainLayout';
 import { MainPage } from './pages/MainPage';
 import { SignPage } from './pages/SignPage';
+import { createContext, useState } from 'react';
+
+export const LanguageContext = createContext({
+  isTranlated: true,
+  toggleIsTranslated: () => {},
+});
 
 function App() {
+  const [isTranlated, setIsTranlated] = useState<boolean>(true);
+
+  const toggleIsTranslated = () => {
+    setIsTranlated(!isTranlated);
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/mini-app-horoscope" element={<MainLayout />}>
@@ -17,6 +29,10 @@ function App() {
       </Route>
     )
   );
-  return <RouterProvider router={router} />;
+  return (
+    <LanguageContext.Provider value={{ isTranlated, toggleIsTranslated }}>
+      <RouterProvider router={router} />
+    </LanguageContext.Provider>
+  );
 }
 export default App;
