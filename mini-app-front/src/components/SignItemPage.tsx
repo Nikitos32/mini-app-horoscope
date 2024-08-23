@@ -27,7 +27,9 @@ export const SignItemPage = ({ description, signName }: SignItemPageProps) => {
           : library.get(signName)?.toUpperCase()}
       </p>
       <p className="w-1/2 my-auto mx-auto">{description}</p>
-      <p className="flex justify-center">{new Date().toLocaleDateString()}</p>
+      <p className="flex justify-center pb-5">
+        {new Date().toLocaleDateString()}
+      </p>
     </div>
   );
 };

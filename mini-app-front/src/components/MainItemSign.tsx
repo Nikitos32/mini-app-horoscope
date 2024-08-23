@@ -14,7 +14,10 @@ export const MainItemSign = ({ signName }: SignItemPageProps) => {
   let SignIcon: IconType = TbZodiacAquarius;
   const { isTranlated } = useContext(LanguageContext);
   Icons.filter((elem) => {
-    if (elem.name.toLowerCase().includes(signName)) SignIcon = elem;
+    if (elem.name.toLowerCase().includes(signName)) {
+      console.log(elem.name);
+      SignIcon = elem;
+    }
   });
   return (
     <Link
@@ -29,7 +32,9 @@ export const MainItemSign = ({ signName }: SignItemPageProps) => {
           ? signName.toUpperCase()
           : library.get(signName)?.toUpperCase()}
       </p>
-      <p className="flex justify-center">{new Date().toLocaleDateString()}</p>
+      <p className="flex justify-center pb-1">
+        {new Date().toLocaleDateString()}
+      </p>
     </Link>
   );
 };
